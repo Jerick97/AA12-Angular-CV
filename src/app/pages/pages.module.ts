@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { InformationComponent } from './information/information.component';
+import { SkillsComponent } from './skills/skills.component';
 
 
 
@@ -10,7 +11,8 @@ import { InformationComponent } from './information/information.component';
   declarations: [
     HomeComponent,
     AboutComponent,
-    InformationComponent
+    InformationComponent,
+    SkillsComponent
   ],
   imports: [
     CommonModule
@@ -18,7 +20,8 @@ import { InformationComponent } from './information/information.component';
   exports: [
     HomeComponent,
     AboutComponent,
-    InformationComponent
+    InformationComponent,
+    SkillsComponent
   ]
 })
 export class PagesModule { }
