@@ -11,3 +11,20 @@
 	--tw-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 	box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
+.menu-link {
+	border-color: transparent;
+	border-bottom-width: 2px;
+	display: inline-flex;
+	padding-bottom: 1.25rem;
+}
+
+.menu-link-hover:hover {
+	--tw-border-opacity: 1;
+	border-color: rgba(124, 58, 237, var(--tw-border-opacity));
+	--tw-text-opacity: 1;
+	color: rgba(124, 58, 237, var(--tw-text-opacity));
+}
+
+a {
+	text-decoration: inherit;
+}
