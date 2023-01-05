@@ -1,8 +1,8 @@
 <!--Contenedor-->
-<main class="container mx-auto p-4">
+<main class="main-container mx-auto p-6">
     <div class="bg-gray-100">
-        <div class="grid gap-5 lg:grid-cols-3">
-            <div class="space-y-5"><!-- Start Left Side -->
+        <div class="grid gap-5 lg:grid-cols-3 mx-6">
+            <div class="space-y-5 my-6"><!-- Start Left Side -->
                 <!-- Card Sobre Mí -->
                 <div class="shadow rounded-xl overflow-hidden"><!-- Start User Block -->
                     <div class="h-32 bg-cover" style="background-image: url('https://cdn.shopify.com/s/files/1/0066/4574/3686/files/New_York_Skyline_LinkedIn_Background_Photo.png?v=1627912075');"></div>
@@ -18,19 +18,23 @@
                 <!--End Sobre Mí-->
 
                 <!--Información-->
-                <div class="p-7 block-section">
+                <div class="p-8 block-section">
                     <app-information></app-information>
                 </div>
                 <!-- End Información -->
 
                 <!--  Skills -->
-                <div class="p-7 block-section flow-root">
+                <div class="p-8 block-section flow-root">
                     <app-skills></app-skills>
                 </div>
                 <!-- End Skills -->
             </div>
-        <div>
-                <app-about></app-about>
+            <div class="space-y-5 lg:col-span-2 my-6">
+                <!-- Acerca de Mi -->
+                <div class="p-7 pb-0 block-section">
+                    <app-about></app-about>
+                </div>
+                <!-- End Acerca de Mi -->
             </div>
         </div>
     </div>
