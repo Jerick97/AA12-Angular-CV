@@ -4,9 +4,8 @@ import { HomeComponent } from './home.component';
 import { InformationComponent } from '../information/information.component';
 import { SkillsComponent } from '../skills/skills.component';
 import { RouterModule } from '@angular/router';
-import { ContactoComponent } from './contacto/contacto.component';
-import { ProyectosComponent } from './proyectos/proyectos.component';
-import { ResumenComponent } from './resumen/resumen.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ContactoModule } from './contacto/contacto.module';
 
 
 
@@ -18,7 +17,10 @@ import { ResumenComponent } from './resumen/resumen.component';
   ],
   imports: [
     CommonModule,
-    RouterModule
+    RouterModule,
+    FormsModule,
+    ReactiveFormsModule,
+    ContactoModule
   ],
   exports: [
     InformationComponent,
