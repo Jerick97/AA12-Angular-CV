@@ -25,6 +25,18 @@
 	color: rgba(124, 58, 237, var(--tw-text-opacity));
 }
 
+.mail-link {
+	display: flex;
+	align-items: center;
+	font-weight: 500;
+	--tw-text-opacity: 1;
+	color: rgba(139, 92, 246, var(--tw-text-opacity));
+}
+.social-link-hover:hover {
+	--tw-text-opacity: 1;
+	color: rgba(124, 58, 237, var(--tw-text-opacity));
+}
+
 a {
 	text-decoration: inherit;
 }
