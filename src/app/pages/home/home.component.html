@@ -36,6 +36,30 @@
                     <app-skills></app-skills>
                 </div>
                 <!-- End Skills -->
+                <!-- ngClass-->
+                <div class="p-8 block-section flow-root">
+                    <div class="bg-violet-100 p-3 text-center">
+                        <h3>Curiosidades</h3>
+                        <label for="texto">¿Qué Color me Gusta?</label> 
+                        <div class="p-2 m-2">  
+                            <input id="texto" type="text" [(ngModel)]="color">
+                        </div>
+                        <div [ngSwitch]="color | lowercase" class="p-2 m-2">
+                            <p *ngSwitchCase="'azul'" [ngStyle]="{'color':'blue'}">
+                                El color Azul
+                            </p>
+                            <p *ngSwitchCase="'verde'" [ngStyle]="{'color':'green'}">
+                                El color Verde
+                            </p>
+                            <p *ngSwitchCase="'rojo'" [ngStyle]="{'color':'red'}">
+                                El color Rojo
+                            </p>
+                            <p *ngSwitchDefault>
+                                No hay ningún color
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="space-y-5 lg:col-span-2 my-6">
                 <!-- Acerca de Mi -->
@@ -67,7 +91,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="social-link-hover">
+                                <a href="https://github.com/Jerick97/" target="_blank" class="social-link-hover">
                                     <i class="bi bi-github"></i>
                                 </a>
                             </li>

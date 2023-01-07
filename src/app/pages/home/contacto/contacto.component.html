@@ -7,17 +7,35 @@
                 <h5 class="text-center text-xl font-medium text-gray-900 dark:text-white">Contacto</h5>
                 <div>
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Nombre</label>
-                    <input formControlName="name" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Tu Nombre" required>
+                    <input formControlName="name" [ngClass]="{'correct': formContact.get('name')?.valid,'error': formContact.get('name')?.invalid && formContact.get('name')?.touched}" type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Tu Nombre" required>
+                    <div>
+                        <p *ngIf="formContact.get('name')?.errors?.['required']&& formContact.get('name')?.touched" class="text-center block mb-1 ml-1 text-red-600">El Campo Nombre es Obligatorio</p>
+                        <p *ngIf="formContact.get('name')?.errors?.['minlength']&& formContact.get('name')?.touched" class="text-center block mb-1 ml-1 text-red-600">Debe Tener como mínimo {{formContact.get('name')?.errors?.['minlength']?.requiredLength}} caracteres</p>
+                        <p *ngIf="formContact.get('name')?.valid" class="text-center block mb-1 ml-1 text-green-500">Todo Correcto</p>
+                    </div>
                 </div>
                 <div>
                     <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email</label>
-                    <input formControlName="email" type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@dominio.com" required>
+                    <input formControlName="email" [ngClass]="{'correct': formContact.get('email')?.valid,'error': formContact.get('email')?.invalid && formContact.get('email')?.touched}" type="email" name="email" id="email" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="name@dominio.com" required>
+                    <div>
+                        <p *ngIf="formContact.get('email')?.touched && formContact.get('email')?.errors?.['required']" class="text-center block mb-1 ml-1 text-red-600">El Email es Obligatorio</p>
+                        <p *ngIf="formContact.get('email')?.touched && formContact.get('email')?.errors?.['pattern']" class="text-center block mb-1 ml-1 text-red-600">Formato de Email es Incorrecto email@dominio.com</p>
+                        <p *ngIf="formContact.get('email')?.valid" class="text-center block mb-1 ml-1 text-green-500">Todo Correcto</p>
+                    </div>
                 </div>
                 <div>
                     <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Mensaje</label>
-                    <textarea formControlName="message" type="text" name="message" id="message" placeholder="Tu Mensaje" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required></textarea>
+                    <textarea formControlName="message" [ngClass]="{'correct': formContact.get('message')?.valid,'error': formContact.get('message')?.invalid && formContact.get('message')?.touched}" type="text" name="message" id="message" placeholder="Tu Mensaje" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required></textarea>
+                    <div>
+                        <p *ngIf="formContact.get('message')?.errors?.['required']&& formContact.get('message')?.touched" class="text-center block mb-1 ml-1 text-red-600">El Campo Mensaje es Obligatorio</p>
+                        <p *ngIf="formContact.get('message')?.errors?.['minlength']&& formContact.get('message')?.touched" class="text-center block mb-1 ml-1 text-red-600">Debe Tener como mínimo {{formContact.get('message')?.errors?.['minlength']?.requiredLength}} caracteres</p>
+                        <p *ngIf="formContact.get('message')?.valid" class="text-center block mb-1 ml-1 text-green-500">Todo Correcto</p>
+                    </div>
                 </div>
-                <button type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar</button>
+                <button [disabled]="formContact.invalid" type="submit" class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Enviar</button>
+                <div *ngIf="formContact.valid && correcto">
+                    <p class="text-center block mb-1 ml-1 text-green-500">Mensaje Enviado Correctamente</p>
+                </div>
             </form>
         </div>
     </div>
